@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="13" fill="#1A1A1D"/>
-  <g transform="translate(4 5) scale(0.86)">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Bad Duck Software</title>
+  <g transform="translate(6 7.2) scale(0.8)">
     <path d="M13 36 2 27l10 21z" fill="#ECECEE"/>
     <ellipse cx="28" cy="41" rx="21" ry="13" fill="#ECECEE"/>
     <circle cx="41" cy="21" r="13" fill="#ECECEE"/>

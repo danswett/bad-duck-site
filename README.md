@@ -10,12 +10,29 @@ Push to `main` and GitHub Pages publishes it.
 |---|---|
 | `index.html` | The whole site |
 | `favicon.svg` | Bad Duck mark on a dark tile |
+| `brand/` | Logo masters and exported PNGs for profiles and listings |
 | `CNAME` | Custom domain for GitHub Pages (`bad-duck.com`) |
 | `img/` | Artwork copied from the product's `marketplace/` assets |
 
-The Bad Duck logo is an inline SVG in `index.html` (and again in `favicon.svg`) —
-a rubber-duck silhouette in shades. It has no background tile, so it sits
-directly on the page. Keep the two copies in sync when editing it.
+The Bad Duck logo is an inline SVG in `index.html`, and again in `favicon.svg`
+and both `brand/*.svg` masters — a rubber-duck silhouette in shades. It has no
+background tile in the header, so it sits directly on the page. The shades are
+clipped to the head circle so they cannot overhang the silhouette at large
+sizes. **Keep all four copies in sync when editing it.**
+
+## Brand assets
+
+| File | Use |
+|---|---|
+| `brand/bad-duck-logo.svg` | Master, transparent background |
+| `brand/bad-duck-logo-dark.svg` | Master, `#1A1A1D` square tile |
+| `brand/bad-duck-logo-{288,512,1024}.png` | Transparent PNG exports |
+| `brand/bad-duck-logo-dark-{288,512,1024}.png` | Dark-tile PNG exports |
+
+The duck is scaled to 80% and centred so it survives a circular avatar crop.
+Prefer the **dark-tile** exports for profile pictures — the duck is near-white
+and disappears on a light background. Re-export with
+`brand/render-logo.ps1`.
 
 Product artwork is generated in the plugin repo; refresh it with:
 
