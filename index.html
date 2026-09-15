@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bad Duck Software</title>
+<meta name="description" content="Bad Duck Software builds small, focused tools for people who spend too much time in meetings. Makers of Teams Meeting Controls for the Elgato Stream Deck.">
+<link rel="canonical" href="https://bad-duck.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bad-duck.com/">
+<meta property="og:title" content="Bad Duck Software">
+<meta property="og:description" content="Small, focused tools for people who spend too much time in meetings.">
+<meta property="og:image" content="https://bad-duck.com/img/teams-meeting-controls.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1A1A1D">
+<link rel="icon" href="img/teams-meeting-controls.png" type="image/png">
+<link rel="apple-touch-icon" href="img/teams-meeting-controls.png">
+<style>
+  :root{
+    --indigo:#5059C9;
+    --indigo-lift:#6b73d8;
+    --ink:#1A1A1D;
+    --ink-raised:#232327;
+    --amber:#FFC83D;
+    --coral:#F1707B;
+    --text:#ECECEE;
+    --muted:#9A9AA2;
+    --line:#32323a;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--amber);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{width:100%;max-width:880px;margin:0 auto;padding:0 24px}
+
+  /* ---- header ---- */
+  header{border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;gap:12px;padding:20px 0}
+  .mark{width:34px;height:34px;flex:none;border-radius:9px;background:var(--indigo);
+        display:grid;place-items:center;font-size:19px;line-height:1}
+  .wordmark{font-weight:650;letter-spacing:-.01em;font-size:17px}
+  .wordmark span{color:var(--muted);font-weight:400}
+
+  /* ---- hero ---- */
+  .hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+  .hero h1{
+    margin:0 0 18px;
+    font-size:clamp(2rem,6vw,3.1rem);
+    line-height:1.12;
+    letter-spacing:-.025em;
+    font-weight:700;
+  }
+  .hero h1 em{font-style:normal;color:var(--indigo-lift)}
+  .lede{margin:0;font-size:clamp(1.02rem,2.4vw,1.2rem);color:var(--muted);max-width:60ch}
+
+  /* ---- sections ---- */
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+     margin:0 0 26px;font-weight:600}
+
+  /* ---- product ---- */
+  .card{
+    display:flex;gap:26px;align-items:flex-start;
+    background:var(--ink-raised);border:1px solid var(--line);
+    border-radius:var(--radius);padding:26px;
+  }
+  .card img.icon{width:84px;height:84px;flex:none;border-radius:19px;display:block}
+  .card h3{margin:0 0 4px;font-size:1.32rem;letter-spacing:-.015em}
+  .platform{margin:0 0 12px;font-size:.84rem;color:var(--muted)}
+  .platform b{color:var(--coral);font-weight:600}
+  .card p.desc{margin:0 0 18px;color:#C9C9D0}
+
+  ul.feat{list-style:none;margin:0 0 20px;padding:0;
+          display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:6px 18px}
+  ul.feat li{font-size:.92rem;color:#C9C9D0;padding-left:20px;position:relative}
+  ul.feat li::before{content:"";position:absolute;left:4px;top:.62em;
+                     width:6px;height:6px;border-radius:50%;background:var(--amber)}
+
+  .actions{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-block;padding:9px 17px;border-radius:9px;font-size:.92rem;font-weight:600;
+       border:1px solid transparent;transition:background .15s,border-color .15s}
+  .btn:hover{text-decoration:none}
+  .btn-primary{background:var(--indigo);color:#fff}
+  .btn-primary:hover{background:var(--indigo-lift)}
+  .btn-ghost{border-color:var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--muted)}
+
+  figure.shot{margin:26px 0 0}
+  figure.shot img{width:100%;height:auto;display:block;border-radius:var(--radius);
+                  border:1px solid var(--line)}
+  figure.shot figcaption{margin-top:9px;font-size:.84rem;color:var(--muted)}
+
+  /* ---- contact ---- */
+  .contact p{margin:0 0 10px;max-width:60ch;color:#C9C9D0}
+  .mailto{font-size:1.06rem;font-weight:600}
+
+  /* ---- footer ---- */
+  footer{padding:32px 0 46px;font-size:.84rem;color:var(--muted)}
+  footer p{margin:0 0 7px;max-width:70ch}
+
+  @media (max-width:600px){
+    .hero{padding:52px 0 42px}
+    section{padding:44px 0}
+    .card{flex-direction:column;gap:18px;padding:22px}
+    .card img.icon{width:66px;height:66px;border-radius:15px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="mark" aria-hidden="true">🦆</div>
+    <div class="wordmark">Bad Duck <span>Software</span></div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="hero">
+      <h1>Small, focused tools for people who spend&nbsp;too&nbsp;much&nbsp;time <em>in meetings.</em></h1>
+      <p class="lede">Bad Duck Software is a one-person studio building desktop utilities that do
+        one job properly — and then get out of the way.</p>
+    </div>
+
+    <section>
+      <h2>Products</h2>
+
+      <div class="card">
+        <img class="icon" src="img/teams-meeting-controls.png"
+             alt="Teams Meeting Controls app icon" width="84" height="84">
+        <div>
+          <h3>Teams Meeting Controls</h3>
+          <p class="platform">Elgato Stream Deck plugin &middot; <b>Windows only</b></p>
+          <p class="desc">Control Microsoft Teams meetings from your Stream Deck: mute, camera,
+            raise hand, the five reactions, background blur, screen share, chat, people and leave.
+            Every key shows the real state of the meeting, so a muted mic looks muted before you
+            press it.</p>
+          <ul class="feat">
+            <li>Live state on every key</li>
+            <li>Works while Teams is unfocused</li>
+            <li>Never sends keystrokes</li>
+            <li>Keys dim outside a meeting</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-primary"
+               href="https://marketplace.elgato.com/stream-deck/plugins">Elgato Marketplace</a>
+            <a class="btn btn-ghost"
+               href="https://github.com/danswett/streamdeck-teams-control">Source on GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <figure class="shot">
+        <img src="img/gallery-live-state.png"
+             alt="Stream Deck keys showing live Teams meeting state" loading="lazy">
+        <figcaption>Live mute, camera and sharing state, read straight from the Teams window.</figcaption>
+      </figure>
+    </section>
+
+    <section class="contact">
+      <h2>Support</h2>
+      <p>Questions, bug reports and licensing enquiries are all welcome. Bug reports are usually
+        best filed on GitHub, where they can be tracked against a release.</p>
+      <p class="mailto"><a href="mailto:support@bad-duck.com">support@bad-duck.com</a></p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Not affiliated with, endorsed by, or sponsored by Microsoft or Elgato. Microsoft Teams
+      is a trademark of Microsoft Corporation. Stream Deck is a trademark of Elgato.</p>
+    <p>&copy; 2026 Bad Duck Software</p>
+  </div>
+</footer>
+
+</body>
+</html>
