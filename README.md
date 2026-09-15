@@ -28,11 +28,33 @@ sizes. **Keep all four copies in sync when editing it.**
 | `brand/bad-duck-logo-dark.svg` | Master, `#1A1A1D` square tile |
 | `brand/bad-duck-logo-{288,512,1024}.png` | Transparent PNG exports |
 | `brand/bad-duck-logo-dark-{288,512,1024}.png` | Dark-tile PNG exports |
+| `brand/og-image.png` | 1200 × 630 link-preview card |
+| `brand/og-template.html` | Source for `og-image.png` |
 
 The duck is scaled to 80% and centred so it survives a circular avatar crop.
 Prefer the **dark-tile** exports for profile pictures — the duck is near-white
 and disappears on a light background. Re-export with
 `brand/render-logo.ps1`.
+
+### Link previews
+
+`og:image` is `brand/og-image.png` — the Bad Duck mark and wordmark, **not** the
+product icon. Its content sits inside the centre 630 × 630 square, because Teams
+and Slack crop preview images to a square rather than honouring the 1.91:1 card.
+
+Regenerate it after a logo change by screenshotting the template at exactly
+1200 × 630:
+
+```powershell
+$edge = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+& $edge --headless=new --disable-gpu --window-size=1200,630 `
+        --force-device-scale-factor=1 `
+        --screenshot="brand\og-image.png" `
+        "file:///C:/Users/dswett/repos/bad-duck-site/brand/og-template.html"
+```
+
+Consumers cache previews hard. To force a refresh, paste the URL with a throwaway
+query string once (`https://bad-duck.com/?v=2`).
 
 Product artwork is generated in the plugin repo; refresh it with:
 
