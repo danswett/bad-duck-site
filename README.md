@@ -59,11 +59,19 @@ query string once (`https://bad-duck.com/?v=2`).
 Product artwork is generated in the plugin repo; refresh it with:
 
 ```powershell
-Copy-Item ..\streamdeck-teams-control\marketplace\app-icon-288.png        img\teams-meeting-controls.png
-Copy-Item ..\streamdeck-teams-control\marketplace\gallery-1-live-state.png img\gallery-live-state.png
-Copy-Item ..\streamdeck-teams-control\marketplace\gallery-2-actions.png    img\gallery-actions.png
-Copy-Item ..\streamdeck-teams-control\marketplace\gallery-3-no-meeting.png img\gallery-no-meeting.png
+$m = "..\streamdeck-teams-control\marketplace"
+Copy-Item "$m\app-icon-288.png"               img\teams-meeting-controls.png
+Copy-Item "$m\gallery-1-live-state.png"       img\gallery-live-state.png
+Copy-Item "$m\gallery-2-meeting-controls.png" img\gallery-actions.png
+Copy-Item "$m\gallery-3-presenting.png"       img\gallery-presenting.png
+Copy-Item "$m\gallery-4-watching.png"         img\gallery-watching.png
+Copy-Item "$m\gallery-5-profiles.png"         img\gallery-profiles.png
+Copy-Item "$m\gallery-6-no-meeting.png"       img\gallery-no-meeting.png
 ```
+
+The source names carry an index and the destination names do not, so this list
+has to be updated whenever the plugin's gallery set changes — as it did when the
+set grew from three items to six.
 
 Brand palette, taken from the Teams Meeting Controls app icon:
 
