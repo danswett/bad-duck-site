@@ -13,6 +13,7 @@ Push to `main` and GitHub Pages publishes it.
 | `brand/` | Logo masters and exported PNGs for profiles and listings |
 | `CNAME` | Custom domain for GitHub Pages (`bad-duck.com`) |
 | `img/` | Artwork copied from the product's `marketplace/` assets |
+| `img/layouts/` | Per-deck profile layouts, copied from the product's `docs/profiles/` |
 
 The Bad Duck logo is an inline SVG in `index.html`, and again in `favicon.svg`
 and both `brand/*.svg` masters — a rubber-duck silhouette in shades. It has no
@@ -74,6 +75,21 @@ The source names carry an index and the destination names do not, so this list
 has to be updated whenever the plugin's gallery set changes — as it did when the
 set grew from three items to six, and again at seven when the deck grids were
 added and `no-meeting` shifted from index 6 to 7.
+
+The **Layouts for your deck** section shows one sheet per Stream Deck, each
+holding all three of that deck's profiles. Those are generated in the plugin
+repo by `npm run profiles`, which draws them from the `.streamDeckProfile` files
+that actually ship, and are copied over whole:
+
+```powershell
+Copy-Item "..\streamdeck-teams-control\docs\profiles\*.png" img\layouts\ -Force
+```
+
+Names match the plugin's deck slugs (`mini`, `stream-deck`, `plus`, `neo`, `xl`,
+`studio`, `plus-xl`), so adding a deck there means adding a `<details>` block
+here — nothing picks it up automatically. The sheets are inside collapsed
+`<details>` and marked `loading="lazy"`, so none of the 1.6 MB is fetched until
+a reader opens one.
 
 Brand palette, taken from the Teams Meeting Controls app icon:
 
