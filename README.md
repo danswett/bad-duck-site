@@ -66,12 +66,14 @@ Copy-Item "$m\gallery-2-meeting-controls.png" img\gallery-actions.png
 Copy-Item "$m\gallery-3-presenting.png"       img\gallery-presenting.png
 Copy-Item "$m\gallery-4-watching.png"         img\gallery-watching.png
 Copy-Item "$m\gallery-5-profiles.png"         img\gallery-profiles.png
-Copy-Item "$m\gallery-6-no-meeting.png"       img\gallery-no-meeting.png
+Copy-Item "$m\gallery-6-decks.png"            img\gallery-decks.png
+Copy-Item "$m\gallery-7-no-meeting.png"       img\gallery-no-meeting.png
 ```
 
 The source names carry an index and the destination names do not, so this list
 has to be updated whenever the plugin's gallery set changes — as it did when the
-set grew from three items to six.
+set grew from three items to six, and again at seven when the deck grids were
+added and `no-meeting` shifted from index 6 to 7.
 
 Brand palette, taken from the Teams Meeting Controls app icon:
 
