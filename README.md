@@ -86,10 +86,10 @@ Copy-Item "..\streamdeck-teams-control\docs\profiles\*.png" img\layouts\ -Force
 ```
 
 Names match the plugin's deck slugs (`mini`, `stream-deck`, `plus`, `neo`, `xl`,
-`studio`, `plus-xl`), so adding a deck there means adding a `<details>` block
+`plus-xl`), so adding a deck there means adding a `<details>` block
 here — nothing picks it up automatically. The sheets are inside collapsed
-`<details>` and marked `loading="lazy"`, so none of the 1.6 MB is fetched until
-a reader opens one.
+`<details>` and marked `loading="lazy"`, so none of the megabyte-plus is fetched
+until a reader opens one.
 
 Brand palette, taken from the Teams Meeting Controls app icon:
 
