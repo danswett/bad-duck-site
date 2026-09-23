@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bad Duck Software</title>
-<meta name="description" content="Bad Duck Software builds small, focused tools for people who spend too much time in meetings. Makers of Teams Meeting Controls for the Elgato Stream Deck.">
+<meta name="description" content="Bad Duck Software builds small, focused desktop tools. Elgato Stream Deck plugins for Microsoft Teams meetings, the Arturia AudioFuse, and whatever is playing on Windows.">
 <link rel="canonical" href="https://bad-duck.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bad-duck.com/">
 <meta property="og:title" content="Bad Duck Software">
-<meta property="og:description" content="Small, focused tools for people who spend too much time in meetings.">
+<meta property="og:description" content="Small, focused desktop tools that do one job properly.">
 <meta property="og:image" content="https://bad-duck.com/brand/og-image.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -20,285 +20,88 @@
 <meta name="theme-color" content="#1A1A1D">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="brand/bad-duck-logo-dark-512.png">
-<style>
-  :root{
-    --indigo:#5059C9;
-    --indigo-lift:#6b73d8;
-    --ink:#1A1A1D;
-    --ink-raised:#232327;
-    --amber:#FFC83D;
-    --coral:#F1707B;
-    --text:#ECECEE;
-    --muted:#9A9AA2;
-    --line:#32323a;
-    --radius:14px;
-  }
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0;
-    background:var(--ink);
-    color:var(--text);
-    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:var(--amber);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{width:100%;max-width:880px;margin:0 auto;padding:0 24px}
-
-  /* ---- header ---- */
-  header{border-bottom:1px solid var(--line)}
-  .bar{display:flex;align-items:center;gap:11px;padding:18px 0}
-  .mark{width:40px;height:40px;flex:none;display:block}
-  .wordmark{font-weight:650;letter-spacing:-.01em;font-size:17px}
-  .wordmark span{color:var(--muted);font-weight:400}
-
-  /* ---- hero ---- */
-  .hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
-  .hero h1{
-    margin:0 0 18px;
-    font-size:clamp(2rem,6vw,3.1rem);
-    line-height:1.12;
-    letter-spacing:-.025em;
-    font-weight:700;
-  }
-  .hero h1 em{font-style:normal;color:var(--indigo-lift)}
-  .lede{margin:0;font-size:clamp(1.02rem,2.4vw,1.2rem);color:var(--muted);max-width:60ch}
-
-  /* ---- sections ---- */
-  section{padding:56px 0;border-bottom:1px solid var(--line)}
-  h2{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-     margin:0 0 26px;font-weight:600}
-
-  /* ---- product ---- */
-  .card{
-    display:flex;gap:26px;align-items:flex-start;
-    background:var(--ink-raised);border:1px solid var(--line);
-    border-radius:var(--radius);padding:26px;
-  }
-  .card img.icon{width:84px;height:84px;flex:none;border-radius:19px;display:block}
-  .card h3{margin:0 0 4px;font-size:1.32rem;letter-spacing:-.015em}
-  .platform{margin:0 0 12px;font-size:.84rem;color:var(--muted)}
-  .platform b{color:var(--coral);font-weight:600}
-  .card p.desc{margin:0 0 18px;color:#C9C9D0}
-
-  ul.feat{list-style:none;margin:0 0 20px;padding:0;
-          display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:6px 18px}
-  ul.feat li{font-size:.92rem;color:#C9C9D0;padding-left:20px;position:relative}
-  ul.feat li::before{content:"";position:absolute;left:4px;top:.62em;
-                     width:6px;height:6px;border-radius:50%;background:var(--amber)}
-
-  .actions{display:flex;flex-wrap:wrap;gap:10px}
-  .btn{display:inline-block;padding:9px 17px;border-radius:9px;font-size:.92rem;font-weight:600;
-       border:1px solid transparent;transition:background .15s,border-color .15s}
-  .btn:hover{text-decoration:none}
-  .btn-primary{background:var(--indigo);color:#fff}
-  .btn-primary:hover{background:var(--indigo-lift)}
-  .btn-ghost{border-color:var(--line);color:var(--text)}
-  .btn-ghost:hover{border-color:var(--muted)}
-
-  .gallery{margin-top:26px;display:grid;gap:22px}
-  figure.shot{margin:0}
-  figure.shot img{width:100%;height:auto;display:block;border-radius:var(--radius);
-                  border:1px solid var(--line)}
-  figure.shot figcaption{margin-top:9px;font-size:.84rem;color:var(--muted)}
-
-  /* ---- deck layouts ---- */
-  .intro{margin:-8px 0 22px;color:#C9C9D0;max-width:64ch}
-  .decks{display:grid;gap:9px}
-  details.deck{background:var(--ink-raised);border:1px solid var(--line);
-               border-radius:var(--radius)}
-  details.deck>summary{cursor:pointer;padding:14px 18px;display:flex;align-items:baseline;gap:12px;
-                       font-weight:600;list-style:none}
-  details.deck>summary::-webkit-details-marker{display:none}
-  details.deck>summary .grid{color:var(--muted);font-weight:400;font-size:.87rem;margin-left:auto}
-  details.deck>summary::after{content:"+";color:var(--muted);font-weight:400;
-                              width:1ch;text-align:center}
-  details.deck[open]>summary::after{content:"\2212"}
-  details.deck>summary:hover{color:var(--amber)}
-  details.deck .sheet{padding:0 18px 18px}
-  details.deck img{max-width:100%;height:auto;display:block;border-radius:10px;
-                   border:1px solid var(--line)}
-  .note{margin:18px 0 0;font-size:.86rem;color:var(--muted);max-width:64ch}
-
-  /* ---- contact ---- */
-  .contact p{margin:0 0 10px;max-width:60ch;color:#C9C9D0}
-  .mailto{font-size:1.06rem;font-weight:600}
-
-  /* ---- footer ---- */
-  footer{padding:32px 0 46px;font-size:.84rem;color:var(--muted)}
-  footer p{margin:0 0 7px;max-width:70ch}
-
-  @media (max-width:600px){
-    .hero{padding:52px 0 42px}
-    section{padding:44px 0}
-    .card{flex-direction:column;gap:18px;padding:22px}
-    .card img.icon{width:66px;height:66px;border-radius:15px}
-  }
-</style>
+<link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to content</a>
+
 <header>
   <div class="wrap bar">
-    <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Bad Duck Software logo">
-      <path d="M13 36 2 27l10 21z" fill="#ECECEE"/>
-      <ellipse cx="28" cy="41" rx="21" ry="13" fill="#ECECEE"/>
-      <circle cx="41" cy="21" r="13" fill="#ECECEE"/>
-      <path d="M50 21.5h11.3c1.9 0 2.9 2.2 1.7 3.7l-2.5 3.1c-.6.8-1.6 1.2-2.6 1.2H50z" fill="#FFC83D"/>
-      <clipPath id="bdhead"><circle cx="41" cy="21" r="13"/></clipPath>
-      <path clip-path="url(#bdhead)" d="M29.6 13.4 52 17.5c1.4.3 2 1.9 1 2.9l-1.7 1.7c-.5.5-1.2.8-1.9.8h-4.3c-1.6 0-2.8-1.3-2.8-2.9v-.5l-2.4-.4v.8c0 1.7-1.5 3-3.2 2.7l-4.7-.7c-1.4-.2-2.4-1.4-2.4-2.8v-3.2c0-1.6 1.5-2.8 3-2.5z" fill="#141418"/>
-    </svg>
-    <div class="wordmark">Bad Duck <span>Software</span></div>
+    <a class="brand" href="/">
+      <img class="mark" src="brand/bad-duck-mark.svg" alt="" width="40" height="40">
+      <span class="wordmark">Bad Duck <span>Software</span></span>
+    </a>
+    <nav class="site" aria-label="Products">
+      <a href="teams-meeting-controls.html">Teams Meeting Controls</a>
+      <a href="audiofuse-control.html">AudioFuse Control</a>
+      <a href="now-playing.html">Now Playing</a>
+      <a href="#support">Support</a>
+    </nav>
   </div>
 </header>
 
-<main>
+<main id="main">
   <div class="wrap">
 
     <div class="hero">
-      <h1>Small, focused tools for people who spend&nbsp;too&nbsp;much&nbsp;time <em>in meetings.</em></h1>
-      <p class="lede">Bad Duck Software is a one-person studio building desktop utilities that do
-        one job properly — and then get out of the way.</p>
+      <h1>Small, focused tools that do <em>one job properly.</em></h1>
+      <p class="lede">Bad Duck Software is a one-person studio building desktop utilities that
+        do one job properly — and then get out of the way.</p>
     </div>
 
     <section>
       <h2>Products</h2>
 
-      <div class="card">
-        <img class="icon" src="img/teams-meeting-controls.png"
-             alt="Teams Meeting Controls app icon" width="84" height="84">
-        <div>
-          <h3>Teams Meeting Controls</h3>
-          <p class="platform">Elgato Stream Deck plugin &middot; <b>Windows only</b></p>
-          <p class="desc">Control Microsoft Teams meetings and PowerPoint Live from your Stream
-            Deck: mute, camera, raise hand, the five reactions, background blur, screen share,
-            chat, people and leave — plus slide navigation, drawing tools and a live slide
-            counter while a deck is up. Every key shows the real state of the meeting, so a
-            muted mic looks muted before you press it.</p>
-          <ul class="feat">
-            <li>Live state on every key</li>
-            <li>Full PowerPoint Live control</li>
-            <li>Profiles that follow the meeting</li>
-            <li>Layouts for every Stream Deck</li>
-            <li>Dials and touch strip supported</li>
-            <li>Works while Teams is unfocused</li>
-            <li>Never sends keystrokes</li>
-            <li>Keys dim outside a meeting</li>
-          </ul>
-          <div class="actions">
-            <a class="btn btn-primary"
-               href="https://marketplace.elgato.com/product/teams-meeting-controls-cd033891-69c4-4ee7-95e5-f07773b6fb95">Get it on Elgato Marketplace</a>
-            <a class="btn btn-ghost"
-               href="https://github.com/danswett/streamdeck-teams-control">Source on GitHub</a>
+      <div class="products">
+
+        <div class="card">
+          <img class="icon" src="img/teams-meeting-controls.png"
+               alt="Teams Meeting Controls app icon" width="84" height="84">
+          <div>
+            <h3><a href="teams-meeting-controls.html">Teams Meeting Controls</a></h3>
+            <p class="platform">Elgato Stream Deck plugin &middot; <b>Windows only</b></p>
+            <p class="desc">Mute, camera, raise hand, reactions, blur, share and leave — plus
+              full PowerPoint Live control while a deck is up. Every key shows the real state of
+              the meeting, so a muted mic looks muted before you press it.</p>
+            <a class="more" href="teams-meeting-controls.html">Look at Teams Meeting Controls</a>
           </div>
         </div>
-      </div>
 
-      <div class="gallery">
-        <figure class="shot">
-          <img src="img/gallery-live-state.png"
-               alt="Stream Deck keys showing live Teams meeting state" loading="lazy">
-          <figcaption>Live mute, camera and sharing state, read straight from the Teams window.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/gallery-actions.png"
-               alt="The Teams Meeting Controls meeting actions" loading="lazy">
-          <figcaption>Meeting controls: mute, camera, hand, five reactions, blur, share, chat, people and leave.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/gallery-presenting.png"
-               alt="Stream Deck keys for presenting a PowerPoint Live deck" loading="lazy">
-          <figcaption>Presenting a deck: laser pointer, pen, highlighter and eraser, with a live slide counter on the key.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/gallery-watching.png"
-               alt="Stream Deck keys for watching a PowerPoint Live deck" loading="lazy">
-          <figcaption>Watching one: move at your own pace, jump back in sync, open grid view, or take control.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/gallery-profiles.png"
-               alt="Three Stream Deck profiles following the state of a meeting" loading="lazy">
-          <figcaption>Three profiles follow the meeting on their own, and switch back when it ends.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/gallery-decks.png"
-               alt="The grids of all six supported Stream Deck models" loading="lazy">
-          <figcaption>Every Stream Deck gets its own layouts — Mini, Stream Deck, +, Neo, XL and + XL — with dials covered on the decks that have them.</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="img/gallery-no-meeting.png"
-               alt="Stream Deck keys dimmed when no meeting is running" loading="lazy">
-          <figcaption>Keys dim when no meeting is running, and light up the moment a call starts.</figcaption>
-        </figure>
+        <div class="card">
+          <img class="icon" src="img/audiofuse-control.png"
+               alt="AudioFuse Control app icon" width="84" height="84">
+          <div>
+            <h3><a href="audiofuse-control.html">AudioFuse Control</a></h3>
+            <p class="platform">Elgato Stream Deck plugin &middot; <b>Windows and macOS</b></p>
+            <p class="desc">Mute, dim, mono, speaker sets and preset recall for an Arturia
+              AudioFuse, with monitor level on a dial. Turn a knob on the unit and the key
+              follows, because the state is read from the device rather than remembered.</p>
+            <a class="more" href="audiofuse-control.html">Look at AudioFuse Control</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img class="icon" src="img/now-playing.png"
+               alt="Now Playing app icon" width="84" height="84">
+          <div>
+            <h3><a href="now-playing.html">Now Playing</a></h3>
+            <p class="platform">Elgato Stream Deck plugin &middot; <b>Windows, Stream Deck + only</b></p>
+            <p class="desc">Album art, track and progress on a Stream Deck + dial, for anything
+              that reports to Windows media controls. Press, tap, hold and turn each do what you
+              pick — and volume moves that player, not the system slider.</p>
+            <a class="more" href="now-playing.html">Look at Now Playing</a>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section>
-      <h2>Layouts for your deck</h2>
-      <p class="intro">Three layouts ship for every Stream Deck with a fixed grid — one for the
-        meeting, one for watching a deck, one for presenting — and they can switch themselves as
-        a meeting goes. Open yours to see all three, key by key.</p>
-
-      <div class="decks">
-        <details class="deck">
-          <summary>Stream Deck Mini<span class="grid">3 &times; 2</span></summary>
-          <div class="sheet">
-            <img src="img/layouts/mini.png" width="330"
-                 alt="The three Stream Deck Mini layouts" loading="lazy">
-          </div>
-        </details>
-
-        <details class="deck">
-          <summary>Stream Deck<span class="grid">5 &times; 3</span></summary>
-          <div class="sheet">
-            <img src="img/layouts/stream-deck.png" width="440"
-                 alt="The three Stream Deck layouts" loading="lazy">
-          </div>
-        </details>
-
-        <details class="deck">
-          <summary>Stream Deck +<span class="grid">4 &times; 2 &middot; 4 dials</span></summary>
-          <div class="sheet">
-            <img src="img/layouts/plus.png" width="380"
-                 alt="The three Stream Deck + layouts" loading="lazy">
-          </div>
-        </details>
-
-        <details class="deck">
-          <summary>Stream Deck Neo<span class="grid">4 &times; 2</span></summary>
-          <div class="sheet">
-            <img src="img/layouts/neo.png" width="380"
-                 alt="The three Stream Deck Neo layouts" loading="lazy">
-          </div>
-        </details>
-
-        <details class="deck">
-          <summary>Stream Deck XL<span class="grid">8 &times; 4</span></summary>
-          <div class="sheet">
-            <img src="img/layouts/xl.png" width="700"
-                 alt="The three Stream Deck XL layouts" loading="lazy">
-          </div>
-        </details>
-
-        <details class="deck">
-          <summary>Stream Deck + XL<span class="grid">9 &times; 4 &middot; 6 dials</span></summary>
-          <div class="sheet">
-            <img src="img/layouts/plus-xl.png" width="780"
-                 alt="The three Stream Deck + XL layouts" loading="lazy">
-          </div>
-        </details>
-      </div>
-
-      <p class="note">These are generated from the profiles that actually install, so they cannot
-        drift from what you get. Keys are drawn exactly as the deck draws them — the captions
-        underneath are for this page, not something that appears on the hardware.</p>
-    </section>
-
-    <section class="contact">
+    <section class="contact" id="support">
       <h2>Support</h2>
       <p>Questions, bug reports and licensing enquiries are all welcome. Bug reports are usually
-        best filed on GitHub, where they can be tracked against a release.</p>
+        best filed on GitHub against the plugin in question, where they can be tracked to a
+        release — each product page links to its own issue tracker.</p>
       <p class="mailto"><a href="mailto:support@bad-duck.com">support@bad-duck.com</a></p>
     </section>
 
@@ -307,8 +110,16 @@
 
 <footer>
   <div class="wrap">
-    <p>Not affiliated with, endorsed by, or sponsored by Microsoft or Elgato. Microsoft Teams
-      is a trademark of Microsoft Corporation. Stream Deck is a trademark of Elgato.</p>
+    <nav aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="teams-meeting-controls.html">Teams Meeting Controls</a>
+      <a href="audiofuse-control.html">AudioFuse Control</a>
+      <a href="now-playing.html">Now Playing</a>
+      <a href="mailto:support@bad-duck.com">Support</a>
+    </nav>
+    <p>Not affiliated with, endorsed by, or sponsored by Microsoft, Elgato or Arturia. Microsoft
+      Teams is a trademark of Microsoft Corporation. Stream Deck is a trademark of Elgato.
+      AudioFuse is a trademark of Arturia.</p>
     <p>&copy; 2026 Bad Duck Software</p>
   </div>
 </footer>

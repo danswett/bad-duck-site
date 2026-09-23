@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AudioFuse Control &mdash; Bad Duck Software</title>
+<meta name="description" content="An Elgato Stream Deck plugin for the Arturia AudioFuse. Mute, dim, mono, speaker sets, reference level and preset recall, with monitor volume on a dial and live state read from the device.">
+<link rel="canonical" href="https://bad-duck.com/audiofuse-control.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bad-duck.com/audiofuse-control.html">
+<meta property="og:title" content="AudioFuse Control">
+<meta property="og:description" content="Monitor controls for the Arturia AudioFuse on your Stream Deck, reading the device rather than the last thing you pressed.">
+<meta property="og:image" content="https://bad-duck.com/brand/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bad Duck Software">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bad-duck.com/brand/og-image.png">
+<meta name="theme-color" content="#1A1A1D">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="brand/bad-duck-logo-dark-512.png">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/">
+      <img class="mark" src="brand/bad-duck-mark.svg" alt="" width="40" height="40">
+      <span class="wordmark">Bad Duck <span>Software</span></span>
+    </a>
+    <nav class="site" aria-label="Products">
+      <a href="teams-meeting-controls.html">Teams Meeting Controls</a>
+      <a href="audiofuse-control.html" aria-current="page">AudioFuse Control</a>
+      <a href="now-playing.html">Now Playing</a>
+      <a href="#support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+
+    <div class="hero product">
+      <img class="icon" src="img/audiofuse-control.png"
+           alt="AudioFuse Control app icon" width="96" height="96">
+      <div>
+        <h1>AudioFuse Control</h1>
+        <p class="platform">Elgato Stream Deck plugin &middot; <b>Windows and macOS</b></p>
+        <p class="lede">Mute, dim, mono, speaker set A/B, reference level and preset recall for
+          an Arturia AudioFuse, each on a key that shows what the device is actually doing rather
+          than the last thing you pressed. Turn a knob on the unit and the key follows.</p>
+        <ul class="feat">
+          <li>State read from the device</li>
+          <li>Monitor volume on a dial</li>
+          <li>Input gain and output trim</li>
+          <li>Speaker set switching</li>
+          <li>Reference level recall</li>
+          <li>Eight preset slots</li>
+          <li>Keys dim when unreachable</li>
+          <li>No driver, no MIDI mapping</li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-primary"
+             href="https://github.com/danswett/streamdeck-audiofuse/releases/latest">Download the latest release</a>
+          <a class="btn btn-ghost"
+             href="https://github.com/danswett/streamdeck-audiofuse">Source on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2>What it looks like</h2>
+      <div class="gallery">
+        <figure class="shot">
+          <img src="img/audiofuse-keys.png"
+               alt="Stream Deck keys for mute, dim, mono, speaker sets, reference level and preset recall" loading="lazy">
+          <figcaption>Every control on its own key: mute, dim, mono, speaker set A/B, reference level and preset recall.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/audiofuse-dials.png"
+               alt="Stream Deck + dials showing monitor volume, input gain and output trim in dB" loading="lazy">
+          <figcaption>On a Stream Deck + the dials drive monitor volume, input gain and output trim, with the reading in dB.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/audiofuse-state.png"
+               alt="A mute key shown not muted, muted, and with no device connected" loading="lazy">
+          <figcaption>Turn a knob on the unit and the key follows, because the state is read and not remembered.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/audiofuse-offline.png"
+               alt="Keys and a dial dimmed because the AudioFuse is not reachable" loading="lazy">
+          <figcaption>Keys dim when the AudioFuse is not reachable, rather than looking ready and doing nothing.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>How it talks to the unit</h2>
+      <p class="intro">AudioFuse Control Center already exposes a local HTTP API, and that is
+        what this plugin uses. There is no driver to install, no MIDI mapping to configure and
+        no virtual audio device — it reads and writes the same state the Control Center window
+        shows, so the two never disagree.</p>
+      <p class="note">Because the state is read rather than tracked, anything that changes the
+        device changes the keys: a knob on the front panel, a click in Control Center, or another
+        Stream Deck. The dial readouts are pinned to their right edge so the decimal point stays
+        still while you turn, and a muted output turns the readout red rather than hiding it.</p>
+    </section>
+
+    <section>
+      <h2>What you need</h2>
+      <dl class="reqs">
+        <dt>Operating system</dt>
+        <dd>Windows 10 or later, or macOS 13 or later</dd>
+        <dt>Stream Deck</dt>
+        <dd>Stream Deck software 7.1 or later. Dials need a Stream Deck + or Stream Deck Studio;
+          the keys work on any model.</dd>
+        <dt>Hardware</dt>
+        <dd>An Arturia AudioFuse 16Rig or AudioFuse Studio</dd>
+        <dt>Software</dt>
+        <dd>AudioFuse Control Center running, with its HTTP API reachable</dd>
+      </dl>
+    </section>
+
+    <section class="contact" id="support">
+      <h2>Support</h2>
+      <p>Bug reports and feature requests are best filed on GitHub, where they can be tracked
+        against a release.</p>
+      <p><a href="https://github.com/danswett/streamdeck-audiofuse/issues">Issue tracker for
+        AudioFuse Control</a></p>
+      <p class="mailto"><a href="mailto:support@bad-duck.com">support@bad-duck.com</a></p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="teams-meeting-controls.html">Teams Meeting Controls</a>
+      <a href="audiofuse-control.html">AudioFuse Control</a>
+      <a href="now-playing.html">Now Playing</a>
+      <a href="mailto:support@bad-duck.com">Support</a>
+    </nav>
+    <p>Not affiliated with, endorsed by, or sponsored by Arturia or Elgato. Arturia and AudioFuse
+      are trademarks of Arturia. Stream Deck is a trademark of Elgato. This plugin ships no
+      Arturia artwork.</p>
+    <p>&copy; 2026 Bad Duck Software</p>
+  </div>
+</footer>
+
+</body>
+</html>

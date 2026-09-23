@@ -1,0 +1,173 @@
+/*
+  bad-duck.com
+  One stylesheet for every page. There is no build step, so this is the only
+  thing that stops four pages carrying four copies of the same CSS.
+*/
+
+:root{
+  --indigo:#5059C9;
+  --indigo-lift:#6b73d8;
+  --ink:#1A1A1D;
+  --ink-raised:#232327;
+  --amber:#FFC83D;
+  --coral:#F1707B;
+  --text:#ECECEE;
+  --muted:#9A9AA2;
+  --line:#32323a;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--text);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--amber);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{width:100%;max-width:880px;margin:0 auto;padding:0 24px}
+
+/* Skip link, because the nav now sits between the top of the page and the
+   content on every page. */
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink-raised);color:var(--text);
+      padding:10px 16px;border:1px solid var(--line);border-radius:0 0 9px 0;z-index:10}
+.skip:focus{left:0;text-decoration:none}
+
+/* ---- header and navigation ---- */
+header{border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:11px;padding:18px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px;color:var(--text)}
+.brand:hover{text-decoration:none;color:var(--amber)}
+.mark{width:40px;height:40px;flex:none;display:block}
+.wordmark{font-weight:650;letter-spacing:-.01em;font-size:17px}
+.wordmark span{color:var(--muted);font-weight:400}
+
+nav.site{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 6px}
+nav.site a{
+  color:var(--muted);font-size:.89rem;font-weight:500;
+  padding:6px 10px;border-radius:8px;border:1px solid transparent;
+  transition:color .15s,border-color .15s,background .15s;
+}
+nav.site a:hover{color:var(--text);background:var(--ink-raised);text-decoration:none}
+/* The current page is marked rather than linked, so the nav says where you are
+   instead of offering a link that goes nowhere. */
+nav.site a[aria-current="page"]{color:var(--text);border-color:var(--line);background:var(--ink-raised)}
+
+/* ---- hero ---- */
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.hero h1{
+  margin:0 0 18px;
+  font-size:clamp(2rem,6vw,3.1rem);
+  line-height:1.12;
+  letter-spacing:-.025em;
+  font-weight:700;
+}
+.hero h1 em{font-style:normal;color:var(--indigo-lift)}
+.lede{margin:0;font-size:clamp(1.02rem,2.4vw,1.2rem);color:var(--muted);max-width:60ch}
+
+/* A product page leads with its icon beside the title rather than a bare
+   headline, so the page identifies the product the way the store does. */
+.hero.product{display:flex;gap:26px;align-items:flex-start}
+.hero.product img.icon{width:96px;height:96px;flex:none;border-radius:22px;display:block}
+.hero.product h1{font-size:clamp(1.7rem,4.6vw,2.5rem);margin-bottom:10px}
+.hero.product .lede{margin-bottom:22px}
+.hero .platform{margin:0 0 14px}
+
+/* ---- sections ---- */
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+h2{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+   margin:0 0 26px;font-weight:600}
+
+/* ---- product card, used on the home page ---- */
+.card{
+  display:flex;gap:26px;align-items:flex-start;
+  background:var(--ink-raised);border:1px solid var(--line);
+  border-radius:var(--radius);padding:26px;
+}
+.card img.icon{width:84px;height:84px;flex:none;border-radius:19px;display:block}
+.card h3{margin:0 0 4px;font-size:1.32rem;letter-spacing:-.015em}
+.platform{margin:0 0 12px;font-size:.84rem;color:var(--muted)}
+.platform b{color:var(--coral);font-weight:600}
+.card p.desc{margin:0 0 18px;color:#C9C9D0}
+
+/* The home page lists products as one stacked column of cards. A grid would
+   force the three descriptions to the same length, and they are not. */
+.products{display:grid;gap:16px}
+.products .card h3 a{color:var(--text)}
+.products .card h3 a:hover{color:var(--amber);text-decoration:none}
+.products .card p.desc{margin-bottom:14px}
+.more{font-size:.9rem;font-weight:600}
+.more::after{content:" \2192"}
+
+ul.feat{list-style:none;margin:0 0 20px;padding:0;
+        display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:6px 18px}
+ul.feat li{font-size:.92rem;color:#C9C9D0;padding-left:20px;position:relative}
+ul.feat li::before{content:"";position:absolute;left:4px;top:.62em;
+                   width:6px;height:6px;border-radius:50%;background:var(--amber)}
+
+.actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:9px 17px;border-radius:9px;font-size:.92rem;font-weight:600;
+     border:1px solid transparent;transition:background .15s,border-color .15s}
+.btn:hover{text-decoration:none}
+.btn-primary{background:var(--indigo);color:#fff}
+.btn-primary:hover{background:var(--indigo-lift)}
+.btn-ghost{border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--muted)}
+
+.gallery{display:grid;gap:22px}
+figure.shot{margin:0}
+figure.shot img{width:100%;height:auto;display:block;border-radius:var(--radius);
+                border:1px solid var(--line)}
+figure.shot figcaption{margin-top:9px;font-size:.84rem;color:var(--muted)}
+
+/* ---- deck layouts ---- */
+.intro{margin:-8px 0 22px;color:#C9C9D0;max-width:64ch}
+.decks{display:grid;gap:9px}
+details.deck{background:var(--ink-raised);border:1px solid var(--line);
+             border-radius:var(--radius)}
+details.deck>summary{cursor:pointer;padding:14px 18px;display:flex;align-items:baseline;gap:12px;
+                     font-weight:600;list-style:none}
+details.deck>summary::-webkit-details-marker{display:none}
+details.deck>summary .grid{color:var(--muted);font-weight:400;font-size:.87rem;margin-left:auto}
+details.deck>summary::after{content:"+";color:var(--muted);font-weight:400;
+                            width:1ch;text-align:center}
+details.deck[open]>summary::after{content:"\2212"}
+details.deck>summary:hover{color:var(--amber)}
+details.deck .sheet{padding:0 18px 18px}
+details.deck img{max-width:100%;height:auto;display:block;border-radius:10px;
+                 border:1px solid var(--line)}
+.note{margin:18px 0 0;font-size:.86rem;color:var(--muted);max-width:64ch}
+
+/* ---- requirements ---- */
+dl.reqs{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:10px 22px}
+dl.reqs dt{color:var(--muted);font-size:.88rem}
+dl.reqs dd{margin:0;color:#C9C9D0;font-size:.94rem}
+
+/* ---- contact ---- */
+.contact p{margin:0 0 10px;max-width:60ch;color:#C9C9D0}
+.mailto{font-size:1.06rem;font-weight:600}
+
+/* ---- footer ---- */
+footer{padding:32px 0 46px;font-size:.84rem;color:var(--muted)}
+footer p{margin:0 0 7px;max-width:70ch}
+footer nav{margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px 16px}
+footer nav a{color:var(--muted)}
+footer nav a:hover{color:var(--text)}
+
+@media (max-width:760px){
+  nav.site{margin-left:0;width:100%;gap:2px}
+  nav.site a{padding:6px 8px;font-size:.85rem}
+  .bar{padding:14px 0 12px}
+}
+@media (max-width:600px){
+  .hero{padding:52px 0 42px}
+  section{padding:44px 0}
+  .card{flex-direction:column;gap:18px;padding:22px}
+  .card img.icon{width:66px;height:66px;border-radius:15px}
+  .hero.product{flex-direction:column;gap:18px}
+  .hero.product img.icon{width:72px;height:72px;border-radius:17px}
+  dl.reqs{grid-template-columns:1fr;gap:2px 0}
+  dl.reqs dd{margin-bottom:10px}
+}

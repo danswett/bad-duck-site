@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Now Playing &mdash; Bad Duck Software</title>
+<meta name="description" content="An Elgato Stream Deck plugin that turns a Stream Deck + dial into a now playing display. Album art, track and progress for anything that reports to Windows media controls.">
+<link rel="canonical" href="https://bad-duck.com/now-playing.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bad-duck.com/now-playing.html">
+<meta property="og:title" content="Now Playing">
+<meta property="og:description" content="Album art, track and progress on a Stream Deck + dial, for anything that reports to Windows media controls.">
+<meta property="og:image" content="https://bad-duck.com/brand/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Bad Duck Software">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bad-duck.com/brand/og-image.png">
+<meta name="theme-color" content="#1A1A1D">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="brand/bad-duck-logo-dark-512.png">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="/">
+      <img class="mark" src="brand/bad-duck-mark.svg" alt="" width="40" height="40">
+      <span class="wordmark">Bad Duck <span>Software</span></span>
+    </a>
+    <nav class="site" aria-label="Products">
+      <a href="teams-meeting-controls.html">Teams Meeting Controls</a>
+      <a href="audiofuse-control.html">AudioFuse Control</a>
+      <a href="now-playing.html" aria-current="page">Now Playing</a>
+      <a href="#support">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+
+    <div class="hero product">
+      <img class="icon" src="img/now-playing.png"
+           alt="Now Playing app icon" width="96" height="96">
+      <div>
+        <h1>Now Playing</h1>
+        <p class="platform">Elgato Stream Deck plugin &middot; <b>Windows, Stream Deck + only</b></p>
+        <p class="lede">Turn a Stream Deck + dial into a now playing display. Album art, track,
+          artist and album for whatever is playing on Windows, with a live progress bar and
+          elapsed time. Press, tap, hold and turn each do what you pick.</p>
+        <ul class="feat">
+          <li>Album art from the player</li>
+          <li>Live progress and elapsed time</li>
+          <li>Long titles scroll, never truncate</li>
+          <li>Four configurable gestures</li>
+          <li>Volume moves that player only</li>
+          <li>Turn for volume, track or scrub</li>
+          <li>Follows whatever is in front</li>
+          <li>Honest about what it cannot do</li>
+        </ul>
+        <div class="actions">
+          <a class="btn btn-primary"
+             href="https://github.com/danswett/streamdeck-nowplaying/releases/latest">Download the latest release</a>
+          <a class="btn btn-ghost"
+             href="https://github.com/danswett/streamdeck-nowplaying">Source on GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2>What it looks like</h2>
+      <div class="gallery">
+        <figure class="shot">
+          <img src="img/nowplaying-panel.png"
+               alt="A Stream Deck + touch strip showing album art, track, artist, album and progress" loading="lazy">
+          <figcaption>The whole strip: art on the left, track, artist and album on the right, with progress and elapsed time underneath.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/nowplaying-controls.png"
+               alt="The four dial gestures: press, tap, hold and turn" loading="lazy">
+          <figcaption>Press, tap, hold and turn. Those are the defaults — each one is a setting.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/nowplaying-volume.png"
+               alt="The volume readout shown normal, muted, with no mixer entry, and in exclusive mode" loading="lazy">
+          <figcaption>Volume drives that player's own mixer entry, and says so when there is nothing to drive.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="img/nowplaying-players.png"
+               alt="The same strip showing TIDAL, Plexamp, a browser player, and the idle state" loading="lazy">
+          <figcaption>Anything that reports to Windows media controls, including players that publish no timeline and sessions with no artwork.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why the volume behaves like that</h2>
+      <p class="intro">Turning the dial moves the displayed player's own entry in the Windows
+        mixer, never the system slider. A dial captioned TIDAL that quietly turned down
+        everything on the machine would be worse than no dial at all.</p>
+      <p class="note">That choice has consequences the strip reports rather than hides. A player
+        that has released its audio stream has no mixer entry to move, so the readout says so
+        instead of showing zero. A player holding the device in WASAPI exclusive mode still
+        accepts the commands and still reads a level back — so a percentage there would be a
+        lie, and the strip says <em>exclusive mode</em> instead. Likewise, players that publish
+        no position or duration get their name and state rather than an empty bar over two
+        placeholders, and a session with no artwork gets a stand-in rather than an empty
+        square.</p>
+    </section>
+
+    <section>
+      <h2>What you need</h2>
+      <dl class="reqs">
+        <dt>Operating system</dt>
+        <dd>Windows 10 or later</dd>
+        <dt>Stream Deck</dt>
+        <dd>Stream Deck software 7.1 or later, and a Stream Deck + or Stream Deck Studio. The
+          action is a dial, so there is nothing to put on a plain key.</dd>
+        <dt>Players</dt>
+        <dd>Anything that reports to Windows media controls — Spotify, TIDAL, Plexamp, Apple
+          Music, foobar2000 and browser players all appear without configuration</dd>
+      </dl>
+    </section>
+
+    <section class="contact" id="support">
+      <h2>Support</h2>
+      <p>Bug reports and feature requests are best filed on GitHub, where they can be tracked
+        against a release.</p>
+      <p><a href="https://github.com/danswett/streamdeck-nowplaying/issues">Issue tracker for
+        Now Playing</a></p>
+      <p class="mailto"><a href="mailto:support@bad-duck.com">support@bad-duck.com</a></p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="teams-meeting-controls.html">Teams Meeting Controls</a>
+      <a href="audiofuse-control.html">AudioFuse Control</a>
+      <a href="now-playing.html">Now Playing</a>
+      <a href="mailto:support@bad-duck.com">Support</a>
+    </nav>
+    <p>Not affiliated with, endorsed by, or sponsored by Elgato, Spotify, TIDAL, Plex or Apple.
+      Stream Deck is a trademark of Elgato. All other names are the trademarks of their owners
+      and are used only to say what this plugin works with.</p>
+    <p>&copy; 2026 Bad Duck Software</p>
+  </div>
+</footer>
+
+</body>
+</html>
